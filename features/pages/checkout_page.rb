@@ -6,6 +6,7 @@ class CheckoutPage < SitePrism::Page
   element  :btn_process_carrier, 'button[name="processCarrier"]'
   element  :agree_to_terms, '.checker'
   element  :payment_check_option, 'a.cheque'
+  element  :payment_bank_wire_option, 'a.bankwire'
   element  :btn_confirm_order, '#cart_navigation button[type="submit"]'
 
   def advance_steps
@@ -17,6 +18,11 @@ class CheckoutPage < SitePrism::Page
 
   def finalize_with_check
     payment_check_option.click
+    btn_confirm_order.click
+  end
+
+  def finalize_with_bank_wire
+    payment_bank_wire_option.click
     btn_confirm_order.click
   end
 end

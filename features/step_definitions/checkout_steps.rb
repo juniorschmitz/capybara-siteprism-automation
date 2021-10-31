@@ -13,7 +13,7 @@ When('searches for the product {string}') do |product|
   @home_page.header.search product
 end
 
-When('add the product to my bag') do
+When('add the product to the shopping cart') do
   @search_page = SearchPage.new
   @search_page.add_product_to_bag 0
 end
@@ -25,6 +25,10 @@ end
 
 When('finalize the checkout with payment by check') do
   @checkout_page.finalize_with_check
+end
+
+When('finalize the checkout with payment by Bank Wire') do
+  @checkout_page.finalize_with_bank_wire
 end
 
 Then('the order should be placed successfully') do
