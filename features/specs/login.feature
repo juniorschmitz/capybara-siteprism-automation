@@ -9,9 +9,9 @@ Background: Starts on the Login Page
   Given access the login page
 
 Scenario: Login Successfuly
-  And login with email "potato@teste.com" and password "abc123"
+  When login with the user "valid_login"
   Then should log in successfully
 
 Scenario: Invalid Login
-  And login with email "potato@teste.com" and password "abc1234"
+  When login with the user "invalid_login"
   Then the login should fail

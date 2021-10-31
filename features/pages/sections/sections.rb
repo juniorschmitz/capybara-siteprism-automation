@@ -37,7 +37,7 @@ module Sections
   end
 
   class RegistrationForm < SitePrism::Section
-    element  :gender_male, '#id_gender1'
+    element  :gender_male, '#uniform-id_gender1'
     element  :input_first_name, '#customer_firstname'
     element  :input_last_name, '#customer_lastname'
     element  :input_email, '#email'
