@@ -5,12 +5,13 @@ Feature: Login on the Fake Ecommerce
   As a common user
   So I can navigate and buy stuff
 
+Background: Starts on the Login Page
+  Given access the login page
+
 Scenario: Login Successfuly
-  Given i access the login page
   And login with email "potato@teste.com" and password "abc123"
-  Then i should be logged in successfully
+  Then should log in successfully
 
 Scenario: Invalid Login
-  Given i access the login page
   And login with email "potato@teste.com" and password "abc1234"
   Then the login should fail

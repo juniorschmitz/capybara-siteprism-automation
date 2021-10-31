@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Given('i am on the home page') do
+Given('is on the home page') do
   @home_page = HomePage.new
   @home_page.load
 end

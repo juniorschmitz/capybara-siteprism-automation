@@ -6,11 +6,11 @@ Feature: Products Search
   So I can buy stuff after
 
 Scenario: Search for valid product
-  Given i am on the home page
-  When i search for the product "shirt"
+  Given is on the home page
+  When searches for the product "shirt"
   Then there should be some results
 
 Scenario: Search for inexistent product
-  Given i am on the home page
-  When i search for the product "camiseta"
+  Given is on the home page
+  When searches for the product "camiseta"
   Then there should not be product results

@@ -6,7 +6,7 @@ Feature: Features on the Product Page
   So the users would be able to select and change attributes of the products they desire to buy
 
 Scenario: Attributes selection
-  Given i am on a product page
-  When i change one color attribute
+  Given is on the product page
+  When changes one color attribute
   Then the display image should change
   

@@ -6,7 +6,7 @@ Feature: Registration on the Fake Ecommerce
   So I can navigate and buy stuff
 
 Scenario: Registration successfuly
-  Given i access the login page
-  When i select the registration option
-  And register with valid data
-  Then i should be logged in successfully
+  Given access the login page
+  When select the registration option
+  And register a new user with valid data
+  Then should log in successfully

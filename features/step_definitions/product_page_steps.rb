@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-Given('i am on a product page') do
+Given('is on the product page') do
   @product_page = ProductPage.new
   @product_page.load
 end
 
-When('i change one color attribute') do
+When('changes one color attribute') do
   @img_bfr = @product_page.big_image[:src]
   @product_page.colors.last.click
 end

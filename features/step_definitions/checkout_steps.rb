@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-Given('i am logged in with email {string} and password {string}') do |email, password|
+Given('logged in with email {string} and password {string}') do |email, password|
   steps %(
-    Given i access the login page
+    Given access the login page
     When login with email "#{email}" and password "#{password}"
     Then i should be logged in successfully
   )
 end
 
-When('i search for the product {string}') do |product|
+When('searches for the product {string}') do |product|
   @home_page = HomePage.new
   @home_page.header.search product
 end
