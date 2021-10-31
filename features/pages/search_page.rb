@@ -1,4 +1,6 @@
-require_relative './sections/sections.rb'
+# frozen_string_literal: true
+
+require_relative './sections/sections'
 
 class SearchPage < SitePrism::Page
   sections :products, Sections::Product, '.ajax_block_product'

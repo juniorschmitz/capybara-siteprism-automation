@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class RegistrationPage < SitePrism::Page
-  
-  section  :registration_form, Sections::RegistrationForm, '#account-creation_form'
+  section :registration_form, Sections::RegistrationForm, '#account-creation_form'
 
   def register_random_user(email)
     name = Faker::Name.name

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CheckoutPage < SitePrism::Page
   element  :btn_proceed_to_checkout, 'a[title^="Proceed"]', visible: :visible
   element  :btn_process_address, 'button[name="processAddress"]'

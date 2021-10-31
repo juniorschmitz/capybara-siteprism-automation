@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'selenium-webdriver'
 require 'capybara'
 require 'capybara/dsl'
@@ -37,14 +39,6 @@ end
 #   config.javascript_driver      = :remote_chrome
 # end
 
-
-
-
-
-
-
-
-
 # TARGET_RESOLUTION = [1280,1024]
 # CHROME_SWITCHES = %W(--window-size=#{TARGET_RESOLUTION[0]},#{TARGET_RESOLUTION[1]} --disable-translate --headless)
 # CHROME_SWITCHES = %W(--disable-translate --headless)
@@ -68,7 +62,5 @@ end
 #   config.default_driver         = :remote_chrome
 #   config.javascript_driver      = :remote_chrome
 # end
-
-
 
 # Capybara.default_max_wait_time = 10

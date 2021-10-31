@@ -1,4 +1,6 @@
-require_relative './sections/sections.rb'
+# frozen_string_literal: true
+
+require_relative './sections/sections'
 
 class LoginPage < SitePrism::Page
   set_url 'http://automationpractice.com/index.php?controller=authentication&back=my-account'
@@ -7,7 +9,7 @@ class LoginPage < SitePrism::Page
   section  :login_form, Sections::LoginForm, '#login_form'
   section  :create_account_option, Sections::CreateAccountOption, '#create-account_form'
   element  :alert_danger, '.alert-danger', visible: :visible
-  
+
   def login_with(email, password)
     login_form.input_email.set email
     login_form.input_password.set password

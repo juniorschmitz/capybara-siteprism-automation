@@ -1,0 +1,13 @@
+AllCops:
+  NewCops: enable
+  Exclude: 
+  - 'features/support/factory/static/*'
+  - 'features/support/utils/schemas/*'
+Naming/AccessorMethodName:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Naming/AsciiIdentifiers:
+  Enabled: false
+Style/GlobalVars:
+  Enabled: false
