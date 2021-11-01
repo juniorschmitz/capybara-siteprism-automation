@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+Dir[File.join(File.dirname(__FILE__), '../../sections/*/*.rb')].sort.each { |file| require file }
+
 class RegistrationPage < SitePrism::Page
-  section :registration_form, Sections::RegistrationForm, '#account-creation_form'
+  section :registration_form, Authentication::RegistrationForm, '#account-creation_form'
 
   def register_user(user)
     registration_form.gender_male.click

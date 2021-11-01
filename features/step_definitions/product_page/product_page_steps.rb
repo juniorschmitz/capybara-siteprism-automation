@@ -5,7 +5,7 @@ Given('is on the product page') do
   @product_page.load
 end
 
-When('changes one color attribute') do
+When('change one color attribute') do
   @img_bfr = @product_page.big_image[:src]
   @product_page.colors.last.click
 end

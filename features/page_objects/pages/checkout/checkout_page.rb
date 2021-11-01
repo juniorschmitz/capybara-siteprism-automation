@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+Dir[File.join(File.dirname(__FILE__), '../../sections/*/*.rb')].sort.each { |file| require file }
+
 class CheckoutPage < SitePrism::Page
   element  :btn_proceed_to_checkout, 'a[title^="Proceed"]', visible: :visible
   element  :btn_process_address, 'button[name="processAddress"]'

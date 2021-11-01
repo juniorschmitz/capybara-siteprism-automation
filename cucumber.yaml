@@ -1,4 +1,4 @@
-default: -p html --format pretty -p prd
+default: -p html --format pretty -p prd -p chrome
 html: --format html --out=log/report.html
 
 # Parallel
@@ -7,4 +7,9 @@ parallel: -p parallel_html --format pretty
 
 parallel_html: --format html --out log/parallel_<%= test_batch_id %>.html
 
+chrome: BROWSER="chrome"
+
 prd: ENVIRONMENT="prd"
+
+# Headless
+headless:  HEADLESS=true

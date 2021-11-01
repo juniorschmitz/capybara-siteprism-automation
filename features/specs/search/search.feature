@@ -7,10 +7,10 @@ Feature: Products Search
 
 Scenario: Search for valid product
   Given is on the home page
-  When searches for the product "shirt"
+  When search for the product "shirt"
   Then there should be some results
 
 Scenario: Search for inexistent product
   Given is on the home page
-  When searches for the product "camiseta"
+  When search for the product "camiseta"
   Then there should not be product results

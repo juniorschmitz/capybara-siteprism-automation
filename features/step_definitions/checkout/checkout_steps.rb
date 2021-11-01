@@ -1,14 +1,6 @@
 # frozen_string_literal: true
 
-Given('logged in with email {string} and password {string}') do |email, password|
-  steps %(
-    Given access the login page
-    When login with email "#{email}" and password "#{password}"
-    Then i should be logged in successfully
-  )
-end
-
-When('searches for the product {string}') do |product|
+When('search for the product {string}') do |product|
   @home_page = HomePage.new
   @home_page.header.search product
 end
@@ -36,4 +28,19 @@ Then('the order should be placed successfully') do
   @checkout_result_page.wait_until_alert_success_visible
   expect(@checkout_result_page).to have_alert_success
   expect(@checkout_result_page.alert_success.text.downcase).to include 'your order on my store is complete'
+end
+
+When("add one product to the shopping cart") do
+  %(
+    When search for the product "shirt"
+    And add the product to the shopping cart
+  )
+end
+
+When("add a second product to the shopping cart") do
+  @home_page.load
+  %(
+    When search for the product "dress"
+    And add the product to the shopping cart
+  )
 end

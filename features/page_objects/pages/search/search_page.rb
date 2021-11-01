@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative './sections/sections'
+Dir[File.join(File.dirname(__FILE__), '../../sections/*/*.rb')].sort.each { |file| require file }
 
 class SearchPage < SitePrism::Page
-  sections :products, Sections::Product, '.ajax_block_product'
-  section  :quickview, Sections::Quickview, '#layer_cart'
+  sections :products, Products::Product, '.ajax_block_product'
+  section  :quickview, Products::Quickview, '#layer_cart'
 
   def add_product_to_bag(product_index)
     products[product_index].image.hover

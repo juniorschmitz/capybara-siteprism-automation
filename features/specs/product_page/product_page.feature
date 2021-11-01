@@ -7,6 +7,6 @@ Feature: Features on the Product Page
 
 Scenario: Attributes selection
   Given is on the product page
-  When changes one color attribute
+  When change one color attribute
   Then the display image should change
   

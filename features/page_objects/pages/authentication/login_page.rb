@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require_relative './sections/sections'
+Dir[File.join(File.dirname(__FILE__), '../../sections/*/*.rb')].sort.each { |file| require file }
 
 class LoginPage < SitePrism::Page
-  set_url 'http://automationpractice.com/index.php?controller=authentication&back=my-account'
+  set_url '?controller=authentication&back=my-account'
 
-  section  :header, Sections::Header, '#header'
-  section  :login_form, Sections::LoginForm, '#login_form'
-  section  :create_account_option, Sections::CreateAccountOption, '#create-account_form'
+  section  :header, Headers::Header, '#header'
+  section  :login_form, Authentication::LoginForm, '#login_form'
+  section  :create_account_option, Authentication::CreateAccountOption, '#create-account_form'
   element  :alert_danger, '.alert-danger', visible: :visible
 
   def login_with(email, password)
