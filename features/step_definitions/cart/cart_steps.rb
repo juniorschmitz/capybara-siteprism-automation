@@ -26,6 +26,7 @@ Then('the product quantity should be increased') do
 end
 
 When('continue shopping') do
+  @cart_page = CartPage.new
   @cart_page.btn_continue_shopping.click
 end
 
@@ -34,6 +35,7 @@ Then('should go back to the search page') do
 end
 
 When('proceed with the checkout') do
+  @cart_page = CartPage.new
   @cart_page.proceed_to_checkout
 end
 
