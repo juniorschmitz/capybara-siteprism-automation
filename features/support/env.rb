@@ -37,4 +37,4 @@ end
 
 Capybara.default_driver        = :selenium
 Capybara.app_host              = URL
-Capybara.default_max_wait_time = 8
+Capybara.default_max_wait_time = 10

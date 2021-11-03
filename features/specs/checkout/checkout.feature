@@ -21,11 +21,11 @@ Scenario: Common Checkout Flow using Bank Wire as Payment
   And add the product to the shopping cart
   And select the address and delivery method
   And finalize the checkout with payment by Bank Wire
-  Then the order should be placed successfully
+  Then the order with bank wire should be placed successfully
 
 Scenario: Common Checkout Flow using Bank Wire as Payment with two products on the cart
   When add one product to the shopping cart
   And add a second product to the shopping cart
   And select the address and delivery method
   And finalize the checkout with payment by Bank Wire
-  Then the order should be placed successfully
+  Then the order with bank wire should be placed successfully

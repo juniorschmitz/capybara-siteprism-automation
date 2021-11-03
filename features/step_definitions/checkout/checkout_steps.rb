@@ -26,20 +26,26 @@ end
 Then('the order should be placed successfully') do
   @checkout_result_page = CheckoutResultPage.new
   @checkout_result_page.wait_until_alert_success_visible
-  expect(@checkout_result_page).to have_alert_success
   expect(@checkout_result_page.alert_success.text.downcase).to include 'your order on my store is complete'
 end
 
+Then('the order with bank wire should be placed successfully') do
+  @checkout_result_page = CheckoutResultPage.new
+  @checkout_result_page.wait_until_p_bank_wire_success_visible
+  expect(@checkout_result_page.p_bank_wire_success.text.downcase).to include 'your order on my store is complete'
+end
+
 When("add one product to the shopping cart") do
-  %(
+  steps %(
     When search for the product "shirt"
     And add the product to the shopping cart
   )
 end
 
 When("add a second product to the shopping cart") do
+  @home_page = HomePage.new
   @home_page.load
-  %(
+  steps %(
     When search for the product "dress"
     And add the product to the shopping cart
   )

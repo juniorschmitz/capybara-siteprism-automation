@@ -4,4 +4,5 @@ Dir[File.join(File.dirname(__FILE__), '../../sections/*/*.rb')].sort.each { |fil
 
 class CheckoutResultPage < SitePrism::Page
   element :alert_success, '.alert-success'
+  element :p_bank_wire_success, '.cheque-indent'
 end
