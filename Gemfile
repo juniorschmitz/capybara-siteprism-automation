@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'capybara'
-gem 'cucumber', '~> 3.1.2'
+gem 'cucumber', '~> 7.1'
 gem 'faker'
 gem 'ffi'
 gem 'nokogiri', '>= 1.10.8'

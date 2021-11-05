@@ -3,6 +3,7 @@
 require 'selenium-webdriver'
 require 'capybara'
 require 'capybara/dsl'
+require 'capybara/cucumber'
 require 'site_prism'
 require 'pry'
 require 'cucumber'
