@@ -15,5 +15,12 @@ module Factory
         city: Faker::Address.city
       }
     end
+
+    def self.product_review
+      {
+        title: Faker::Coffee.blend_name,
+        content: Faker::Lorem.sentence(word_count: 8)
+      }
+    end
   end
 end
