@@ -1,74 +1,41 @@
+# frozen_string_literal: true
+
 require 'selenium-webdriver'
 require 'capybara'
 require 'capybara/dsl'
+require 'capybara/cucumber'
 require 'site_prism'
 require 'pry'
 require 'cucumber'
 require 'rspec'
 require 'faker'
 
-Capybara.configure do |config|
-  config.default_driver = :selenium_chrome
+ENVIRONMENT = ENV['ENVIRONMENT']
+ENVIRONMENT_CONFIG = YAML.load_file(File.dirname(__FILE__) +"/environment/#{ENVIRONMENT}.yml")
+URL = ENVIRONMENT_CONFIG['url']
+BROWSER = ENV['BROWSER'].to_sym
+
+Capybara.register_driver :selenium do |app|
+  case BROWSER
+  when :chrome
+    caps = Selenium::WebDriver::Remote::Capabilities.chrome("goog:chromeOptions" => {"args" => [ "--ignore-ssl-errors", "--ignore-certificate-errors", "--disable-popup-blocking",
+     "--disable-gpu", "--disable-translate", "--start-maximized", "--incognito", "--no-sandbox", "--acceptInsecureCerts=true", "--window-size=1420,835",
+     "--disable-impl-side-painting", "--debug_level=3" ]})
+    if ENV['HEADLESS']
+      caps['goog:chromeOptions']['args'] << '--headless'
+      caps['goog:chromeOptions']['args'] << '--disable-site-isolation-trials'
+    end
+    client = Selenium::WebDriver::Remote::Http::Default.new
+    client.read_timeout = 90
+    options = { browser: :chrome, desired_capabilities: caps, http_client: client }
+  else
+    raise 'Browser not found'
+  end
+
+  puts 'Raising driver'
+  Capybara::Selenium::Driver.new(app, options)
 end
 
-# TARGET_RESOLUTION = [1280,1024]
-# CHROME_SWITCHES = %W(--window-size=#{TARGET_RESOLUTION[0]},#{TARGET_RESOLUTION[1]} --disable-translate --headless)
-# CHROME_SWITCHES = %W(--disable-translate --headless)
-# CHROME_OPTIONS = {
-#   'args' => CHROME_SWITCHES
-# }
-
-# Capybara.register_driver :remote_chrome do |app|
-#   caps = Selenium::WebDriver::Remote::Capabilities.chrome(:chromeOptions => CHROME_OPTIONS)
-#   opts   = {
-#     :browser     => :remote,
-#     # :url         => 'http://192.168.99.100:4444/wd/hub',
-#     # :url         => 'http://ec2-18-216-221-197.us-east-2.compute.amazonaws.com:4444/wd/hub',
-#     # :url         => 'http://ec2-3-136-155-68.us-east-2.compute.amazonaws.com:4444/wd/hub',
-#     # :url          => 'http://34.94.210.21:4444/wd/hub',
-#     :url          => 'http://127.0.0.1:4444/wd/hub',
-#     :desired_capabilities => caps
-#   }
-#   Capybara::Selenium::Driver.new(app, opts)
-# end
-
-# Capybara.configure do |config|
-#   config.default_driver         = :remote_chrome
-#   config.javascript_driver      = :remote_chrome
-# end
-
-
-
-
-
-
-
-
-
-# TARGET_RESOLUTION = [1280,1024]
-# CHROME_SWITCHES = %W(--window-size=#{TARGET_RESOLUTION[0]},#{TARGET_RESOLUTION[1]} --disable-translate --headless)
-# CHROME_SWITCHES = %W(--disable-translate --headless)
-# CHROME_OPTIONS = {
-#   'args' => CHROME_SWITCHES
-# }
-
-# Capybara.register_driver :remote_chrome do |app|
-#   caps = Selenium::WebDriver::Remote::Capabilities.chrome(:chromeOptions => CHROME_OPTIONS)
-#   opts   = {
-#     :browser     => :remote,
-#     # :url         => 'http://192.168.99.100:4444/wd/hub',
-#     # :url         => 'http://ec2-18-216-221-197.us-east-2.compute.amazonaws.com:4444/wd/hub',
-#     :url         => 'http://ec2-3-136-155-68.us-east-2.compute.amazonaws.com:4444/wd/hub',
-#     :desired_capabilities => caps
-#   }
-#   Capybara::Selenium::Driver.new(app, opts)
-# end
-
-# Capybara.configure do |config|
-#   config.default_driver         = :remote_chrome
-#   config.javascript_driver      = :remote_chrome
-# end
-
-
-
-# Capybara.default_max_wait_time = 10
+Capybara.default_driver        = :selenium
+Capybara.app_host              = URL
+Capybara.default_max_wait_time = 10
