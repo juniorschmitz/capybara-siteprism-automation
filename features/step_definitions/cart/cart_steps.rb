@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 When('exclude the product from the shopping cart') do
   @cart_page = CartPage.new
   @cart_page.exclude_product
@@ -40,5 +42,6 @@ When('proceed with the checkout') do
 end
 
 Then('the address page should be displayed') do
-  expect(@cart_page.current_url).to include 'controller=order&step=1'
+  @checkout_page = CheckoutPage.new
+  expect(@checkout_page.current_url).to include 'controller=order&step=1'
 end
