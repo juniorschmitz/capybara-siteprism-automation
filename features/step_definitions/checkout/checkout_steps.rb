@@ -46,7 +46,7 @@ When("add a second product to the shopping cart") do
   @home_page = HomePage.new
   @home_page.load
   steps %(
-    When search for the product "dress"
+    When search for the product "blouse"
     And add the product to the shopping cart
   )
 end
