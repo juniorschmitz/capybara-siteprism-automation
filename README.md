@@ -1,6 +1,6 @@
-# Atomic UI Automation
+# Capybara SitePrism Automation
 
-The project has some automated UI tests implemented, the idea of the project is to show the difference between atomic UI tests and normal UI tests.
+The project has some automated UI tests implemented using Ruby as the language of implementation. The project is a sample project that has the object of being used for future improvements on parallelization and atomic ui tests topics.
 
 The project uses the following stack:
 - Ruby language;
