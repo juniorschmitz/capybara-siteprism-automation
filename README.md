@@ -1,6 +1,12 @@
 # Capybara SitePrism Automation
 
-The project has some automated UI tests implemented using Ruby as the language of implementation. The project is a sample project that has the object of being used for future improvements on parallelization and atomic ui tests topics.
+The project has some automated UI tests implemented using Ruby as the language of implementation. 
+
+The project already uses some best practices on Web test automation focusing on end-to-end strategies.
+
+It is a example project that has the objective of being used for future improvements on parallelization and atomic ui automation topics mainly.
+
+The System Under Test (SUT) used for creating this example on atomic ui testing strategy was the Selenium Automation Practice website, which can be found at: [Automation Practice](http://automationpractice.com/index.php)
 
 The project uses the following stack:
 - Ruby language;
