@@ -1,5 +1,7 @@
 # Capybara SitePrism Automation
 
+[![Linter CI](https://github.com/juniorschmitz/e2e-web-test-automation/actions/workflows/main.yml/badge.svg)](https://github.com/juniorschmitz/e2e-web-test-automation/actions/workflows/main.yml)
+
 The project has some automated UI tests implemented using Ruby as the language of implementation. 
 
 The project already uses some best practices on Web test automation focusing on end-to-end strategies.
