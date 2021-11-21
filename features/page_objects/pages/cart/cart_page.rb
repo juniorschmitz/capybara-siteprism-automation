@@ -4,7 +4,7 @@ Dir[File.join(File.dirname(__FILE__), '../../sections/*/*.rb')].sort.each { |fil
 
 class CartPage < SitePrism::Page
   sections :products, Products::CartProduct, 'tr.cart_item'
-  
+
   element  :total_value, '#total_product'
   element  :p_message_empty_cart, '.alert-warning'
   element  :btn_continue_shopping, 'a[title="Continue shopping"]'
